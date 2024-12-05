@@ -35,7 +35,7 @@ func (h *WeatherHandler) GetLatestWeather(c *gin.Context) {
 
 	weather, err := h.service.GetLatestWeather()
 	if err != nil {
-		c.JSON(http.StatusNotFound, gin.H{"error": "User not found"})
+		c.JSON(http.StatusNotFound, gin.H{"error": "Weather not found"})
 		return
 	}
 
