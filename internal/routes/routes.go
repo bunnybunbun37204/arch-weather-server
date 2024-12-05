@@ -10,13 +10,13 @@ import (
 )
 
 func RegisterRoutes(r *gin.Engine, db *gorm.DB) {
-	userRepo := repositories.NewUserRepository(db)
-	userService := services.NewUserService(userRepo)
-	userHandler := handlers.NewUserHandler(userService)
+	weatherRepo := repositories.NewWeatherRepository(db)
+	weatherService := services.NewWeatherService(weatherRepo)
+	weatherHandler := handlers.NewWetherHandler(weatherService)
 
-	userRoutes := r.Group("/users")
+	weatherRoute := r.Group("/weather")
 	{
-		userRoutes.POST("", userHandler.CreateUser)
-		userRoutes.GET("/:id", userHandler.GetUserByID)
+		weatherRoute.POST("", weatherHandler.CreateWeather)
+		weatherRoute.GET("", weatherHandler.GetLatestWeather)
 	}
 }
