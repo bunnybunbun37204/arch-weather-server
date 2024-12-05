@@ -1,6 +1,5 @@
 Here is a `README.md` for using the API based on your instructions:
 
-```
 # Weather API
 
 This API allows you to get and post weather data to a PostgreSQL database. 
