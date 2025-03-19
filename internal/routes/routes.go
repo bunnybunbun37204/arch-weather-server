@@ -15,7 +15,7 @@ func RegisterRoutes(r *gin.Engine, db *gorm.DB, cache *cache.RedisCache) {
 	weatherService := services.NewWeatherService(weatherRepo, cache)
 	weatherHandler := handlers.NewWetherHandler(weatherService)
 
-	weatherRoute := r.Group("/weather")
+	weatherRoute := r.Group("/api2/weather")
 	{
 		weatherRoute.POST("", weatherHandler.CreateWeather)
 		weatherRoute.GET("", weatherHandler.GetLatestWeather)
