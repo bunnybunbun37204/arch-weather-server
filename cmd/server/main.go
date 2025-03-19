@@ -2,7 +2,6 @@ package main
 
 import (
 	"server/config"
-	"server/internal/cache"
 	"server/internal/database"
 	"server/internal/routes"
 
@@ -16,13 +15,11 @@ func main() {
 	// Connect to the database
 	db := database.ConnectDB(cfg)
 
-	cache := cache.NewRedisCache()
-
 	// Initialize Gin engine
 	r := gin.Default()
 
 	// Register routes
-	routes.RegisterRoutes(r, db, cache)
+	routes.RegisterRoutes(r, db)
 
 	// Start the server
 	r.Run(":" + cfg.Port)
