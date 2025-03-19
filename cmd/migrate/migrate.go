@@ -10,7 +10,7 @@ import (
 
 func main() {
 	// Connect to the database
-	dsn := "host=localhost user=postgres password=secret dbname=server port=5432 sslmode=disable"
+	dsn := "host=localhost user=postgres password=secret dbname=server port=5442 sslmode=disable"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("Error connecting to database: %v", err)
